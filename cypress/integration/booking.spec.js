@@ -1,6 +1,6 @@
-const selectors = require('../fixtures/selectors.json');
+const selectors = require('../fixtures/selector/selectors.json');
 
-it.only('Should booking ticket', () => {
+it('Should booking ticket', () => {
 	cy.visit('http://qamid.tmweb.ru/client/index.php');
 	cy.get(`${selectors.day}`).click();
 	cy.get(`${selectors.time}`).click();

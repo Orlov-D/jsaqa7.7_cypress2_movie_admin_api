@@ -11,16 +11,12 @@ it('Should successfully login', () => {
 	cy.contains('Управление залами').should('be.visible');
 });
 
-// it('Should successfully login', () => {
-// 	cy.visit('http://localhost:3000');
-// 	cy.get(`[data-cy="input"]`).attachFile('plastic.png');
-// });
-const halls = require('../fixtures/someNew/halls.json');
-const selectors = require('../fixtures/selectors.json');
+const halls = require('../fixtures/testData/halls.json');
+const selectors = require('../fixtures/selector/selectors.json');
 it('Should add new hall, movie, price and add it to shedule', () => {
 	cy.visit('/');
-	const prices = require('../fixtures/someNew/prices.json');
-	const movies = require('../fixtures/someNew/movies.json');
+	const prices = require('../fixtures/testData/prices.json');
+	const movies = require('../fixtures/testData/movies.json');
 	cy.login('qamid@qamid.ru', 'qamid');
 	cy.contains('Управление залами').should('be.visible');
 	cy.contains('Создать зал').click();
@@ -44,13 +40,6 @@ it('Should add new hall, movie, price and add it to shedule', () => {
 	cy.get(`${selectors.movie_country}`).type(`${movies.movie_country_1}`);
 	cy.get(`${selectors.poster}`).attachFile('plastic.png');
 	cy.get(`${selectors.save_movie}`).click();
-	// cy.get('.popup__dismiss > img').click();
-	// cy.get('[for="name"] > .conf-step__input').type('15');
-	// cy.get('[for="name"] > .conf-step__input');
-	// cy.get(
-	// 	'#start-sales > [style="display: block;"] > .conf-step__selectors-box > :nth-child(5) > .conf-step__radio'
-	// ).click();
-	// cy.get('#start-sales > .text-center > .conf-step__button').click();
 });
 
 it('Should pass, open sales', () => {
